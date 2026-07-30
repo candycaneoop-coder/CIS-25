@@ -346,7 +346,15 @@ void updateOrder(Receipt savedReceipts[], int receiptCount) {
                 cin >> itemNum;
 
                 if (itemNum >= 1 && itemNum <= savedReceipts[i].itemCount) {
-                    savedReceipts[i].items[itemNum - 1].quantity = 0;
+                    int delIndex = itemNum - 1;
+
+                for (int k = delIndex; k < savedReceipts[i].itemCount - 1; k++) {
+                savedReceipts[i].items[k] = savedReceipts[i].items[k + 1];
+                }
+                
+                savedReceipts[i].itemCount--;
+
+                    saveToFile(savedReceipts, receiptCount);
                     cout << ">> Item removed!" << endl;
                 }
             }
