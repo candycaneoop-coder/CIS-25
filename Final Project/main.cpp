@@ -19,7 +19,6 @@ int main() {
         cout << "5. Exit" << endl;
         cout << "Choose Option: " << endl;
         cin >> option;
-        cin.ignore();
         
     if (option == 1) {
             createNewOrder(savedReceipts, ReceiptCount);
